@@ -30,4 +30,14 @@ class UsersService {
         $stmt = $this->usersModel->insertUser($data);
         return $stmt;
     }
+
+    public function updateUser($id, $data) {
+        $stmt = $this->usersModel->updateUser($id, $data);
+        return $stmt;
+    }
+
+    public function deleteUser($id) {
+        $stmt = $this->usersModel->deleteUser($id);
+        return $stmt;
+    }
 }

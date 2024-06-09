@@ -2,34 +2,65 @@
 include_once 'models/UsersModel.php';
 include_once 'services/UsersService.php';
 
-class UsersController {
+class UsersController
+{
     private $usersService;
 
-    public function __construct($conn) {
+    public function __construct($conn)
+    {
         $usersModel = new UsersModel($conn);
         $this->usersService = new UsersService($usersModel);
     }
 
-    public function readUsers() {
+    public function readUsers()
+    {
         $users = $this->usersService->fetchAllUsers();
-        echo json_encode($users);
+        return json_encode($users);
     }
 
-    public function addUser() {
+    public function addUsers()
+    {
         $data = json_decode(file_get_contents("php://input"), true);
-        $result = $this->usersService->addUser($data);
-        echo json_encode(["message" => $result ? "User added successfully" : "Failed to add user"]);
+        $result = $this->usersService->addUsers($data);
+        if ($result) {
+            echo json_encode(array("message" => "User added successfully."));
+        } else {
+            echo json_encode(array("message" => "Failed to create user."));
+        }
+        exit();
     }
 
-    public function updateUser($id) {
+    public function updateUsers()
+    {
         $data = json_decode(file_get_contents("php://input"), true);
-        $result = $this->usersService->updateUser($id, $data);
-        echo json_encode(["message" => $result ? "User updated successfully" : "Failed to update user"]);
+        if (!isset($data['id_user'])) {
+            echo json_encode(array("message" => "ID is required."));
+            return;
+        }
+        $id = $data['id_user'];
+        $result = $this->usersService->updateUsers($id, $data);
+        if ($result) {
+            echo json_encode(array("message" => "User updated successfully."));
+        } else {
+            echo json_encode(array("message" => "Failed to update user."));
+        }
+        exit();
     }
 
-    public function deleteUser($id) {
-        $result = $this->usersService->deleteUser($id);
-        echo json_encode(["message" => $result ? "User deleted successfully" : "Failed to delete user"]);
+    public function deleteUsers()
+    {
+        $data = json_decode(file_get_contents("php://input"), true);
+        if (!isset($data['id_user'])) {
+            echo json_encode(array("message" => "ID is required."));
+            return;
+        }
+        $id = $data['id_user'];
+        $result = $this->usersService->deleteUsers($id);
+        if ($result) {
+            echo json_encode(array("message" => "User deleted successfully."));
+        } else {
+            echo json_encode(array("message" => "Failed to delete user."));
+        }
+        exit();
     }
 }
-?>

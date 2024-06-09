@@ -1,15 +1,18 @@
 <?php
-class UsersModel {
+class UsersModel
+{
     private $conn;
     private $table_name;
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->conn = $db;
         $tables = include('config/table.php');
         $this->table_name = $tables['users'];
     }
 
-    public function readAllUsers() {
+    public function readAllUsers()
+    {
         try {
             $query = "SELECT * FROM " . $this->table_name;
             $stmt = $this->conn->prepare($query);
@@ -20,7 +23,8 @@ class UsersModel {
         }
     }
 
-    public function insertUser($data) {
+    public function addUsers($data)
+    {
         try {
             $query = "INSERT INTO " . $this->table_name . " (username, nama_lengkap, email, password, role) VALUES (?,?,?,?,?)";
             $stmt = $this->conn->prepare($query);
@@ -36,7 +40,8 @@ class UsersModel {
         }
     }
 
-    public function updateUser($id, $data) {
+    public function updateUsers($id, $data)
+    {
         try {
             $query = "UPDATE " . $this->table_name . " SET username = ?, nama_lengkap = ?, email = ?, password = ?, role = ? WHERE id_user = ?";
             $stmt = $this->conn->prepare($query);
@@ -50,10 +55,12 @@ class UsersModel {
             return $stmt->rowCount();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
+            return false;
         }
     }
 
-    public function deleteUser($id) {
+    public function deleteUsers($id)
+    {
         try {
             $query = "DELETE FROM " . $this->table_name . " WHERE id_user = ?";
             $stmt = $this->conn->prepare($query);
@@ -62,6 +69,7 @@ class UsersModel {
             return $stmt->rowCount();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
+            return false;
         }
     }
 }

@@ -9,14 +9,12 @@ $usersController = new UsersController($db);
 
 // Set up the router
 $router = new Router();
+
+// User routes
 $router->register('GET', '/api/users', [$usersController, 'readUsers']);
-$router->register('POST', '/api/users', [$usersController, 'addUser']);
-$router->register('PUT', '/api/users/{id}', function($params) use ($usersController) {
-    $usersController->updateUser($params['id']);
-});
-$router->register('DELETE', '/api/users/{id}', function($params) use ($usersController) {
-    $usersController->deleteUser($params['id']);
-});
+$router->register('POST', '/api/users', [$usersController, 'addUsers']);
+$router->register('PUT', '/api/users', [$usersController, 'updateUsers']);
+$router->register('DELETE', '/api/users', [$usersController, 'deleteUsers']);
 
 // Dispatch the request
 $router->dispatch($_SERVER['REQUEST_METHOD'], parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));

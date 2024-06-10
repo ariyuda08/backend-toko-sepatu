@@ -1,5 +1,6 @@
 <?php
 include_once 'controllers/UsersController.php';
+include_once 'controllers/ProdukController.php';
 include_once 'config/database.php';
 include_once 'middleware/Router.php';
 

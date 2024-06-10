@@ -1,12 +1,16 @@
 <?php
 include_once 'controllers/UsersController.php';
 include_once 'controllers/ProdukController.php';
+include_once 'controllers/KategoriController.php';
 include_once 'config/database.php';
 include_once 'middleware/Router.php';
 
 $database = new Database();
 $db = $database->getConnection();
+
 $usersController = new UsersController($db);
+$produkController = new ProdukController($db);
+$kategoriController = new KategoriController($db);
 
 // Set up the router
 $router = new Router();
@@ -22,6 +26,13 @@ $router->register('GET', '/api/produk', [$produkController, 'readProduk']);
 $router->register('POST', '/api/produk', [$produkController, 'addProduk']);
 $router->register('PUT', '/api/produk', [$produkController, 'updateProduk']);
 $router->register('DELETE', '/api/produk', [$produkController, 'deleteProduk']);
+
+// Kategori routes
+$router->register('GET', '/api/kategori', [$kategoriController, 'readKategori']);
+$router->register('POST', '/api/kategori', [$kategoriController, 'addKategori']);
+$router->register('PUT', '/api/kategori', [$kategoriController, 'updateKategori']);
+$router->register('DELETE', '/api/kategori', [$kategoriController, 'deleteKategori']);
+
 
 // Dispatch the request
 $router->dispatch($_SERVER['REQUEST_METHOD'], parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));

@@ -35,6 +35,25 @@ class PesananService
         return $pesanan_array;
     }
 
+    public function fetchPesananById($id)
+    {
+        $pesanan = $this->pesananModel->getPesananById($id);
+        if ($pesanan) {
+            return array(
+                "id_pesanan" => $pesanan['id_pesanan'],
+                "tanggal_pesanan" => $pesanan['tanggal_pesanan'],
+                "id_user" => $pesanan['id_user'],
+                "id_produk" => $pesanan['id_produk'],
+                "nama_pelanggan" => $pesanan['nama_pelanggan'],
+                "kontak" => $pesanan['kontak'],
+                "status" => $pesanan['status'],
+                "jumlah" => $pesanan['jumlah'],
+                "total_harga" => $pesanan['total_harga']
+            );
+        }
+        return null;
+    }
+
     public function addPesanan($data)
     {
         return $this->pesananModel->addPesanan($data);

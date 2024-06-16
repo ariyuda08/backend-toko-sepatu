@@ -28,6 +28,18 @@ class KategoriService
         return $kategori_array;
     }
 
+    public function fetchKategoriById($id)
+    {
+        $kategori = $this->kategoriModel->getKategoriById($id);
+        if ($kategori) {
+            return array(
+                "id_kategori" => $kategori['id_kategori'],
+                "nama_kategori" => $kategori['nama_kategori']
+            );
+        }
+        return null;
+    }
+
     public function addKategori($data)
     {
         return $this->kategoriModel->addKategori($data);

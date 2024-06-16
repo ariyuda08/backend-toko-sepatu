@@ -32,6 +32,59 @@ class UsersService
         return $users_array;
     }
 
+    public function fetchUserById($id)
+    {
+        $user = $this->usersModel->getUserById($id);
+        if ($user) {
+            return array(
+                "id_user" => $user['id_user'],
+                "username" => $user['username'],
+                "nama_lengkap" => $user['nama_lengkap'],
+                "email" => $user['email'],
+                "password" => $user['password'],
+                "role" => $user['role']
+            );
+        }
+        return null;
+    }
+
+    public function fetchUserByUsername($username)
+    {
+        $user = $this->usersModel->getUserByUsername($username);
+        if ($user) {
+            return array(
+                "id_user" => $user['id_user'],
+                "username" => $user['username'],
+                "nama_lengkap" => $user['nama_lengkap'],
+                "email" => $user['email'],
+                "password" => $user['password'],
+                "role" => $user['role']
+            );
+        }
+        return null;
+    }
+
+    public function fetchUserByRole($role)
+    {
+        $users = $this->usersModel->getUsersByRole($role);
+        $users_array = array();
+        $users_array["records"] = array();
+
+        foreach ($users as $user) {
+            $user_item = array(
+                "id_user" => $user['id_user'],
+                "username" => $user['username'],
+                "nama_lengkap" => $user['nama_lengkap'],
+                "email" => $user['email'],
+                "password" => $user['password'],
+                "role" => $user['role']
+            );
+            array_push($users_array["records"], $user_item);
+        }
+
+        return $users_array;
+    }
+
     public function addUsers($data)
     {
         return $this->usersModel->addUsers($data);

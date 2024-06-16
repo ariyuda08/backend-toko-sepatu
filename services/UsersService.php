@@ -5,9 +5,9 @@ class UsersService
 {
     private $usersModel;
 
-    public function __construct(UsersModel $usersmodel)
+    public function __construct(UsersModel $usersModel)
     {
-        $this->usersModel = $usersmodel;
+        $this->usersModel = $usersModel;
     }
 
     public function fetchAllUsers()
@@ -15,10 +15,10 @@ class UsersService
         $users = $this->usersModel->readAllUsers();
         $users_array = array();
         $users_array["records"] = array();
-        while ($rows = $users->fetch(PDO::FETCH_ASSOC))
-        {
-            extract($rows);
-            $user_item = array (
+
+        while ($row = $users->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+            $user_item = array(
                 "id_user" => $id_user,
                 "username" => $username,
                 "nama_lengkap" => $nama_lengkap,
@@ -28,7 +28,7 @@ class UsersService
             );
             array_push($users_array["records"], $user_item);
         }
-        
+
         return $users_array;
     }
 
@@ -98,6 +98,24 @@ class UsersService
     public function deleteUsers($id)
     {
         return $this->usersModel->deleteUsers($id);
+    }
+
+    public function login($username, $password)
+    {
+        $user = $this->usersModel->getUserByUsername($username);
+        if ($user && $user['password'] == $password) {
+            $_SESSION['user'] = $user;
+            return true;
+        }
+        return false;
+    }
+
+    public function logout()
+    {
+        // Clear the session
+        session_unset();
+        session_destroy();
+        return true;
     }
 }
 ?>

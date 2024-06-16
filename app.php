@@ -19,6 +19,15 @@ $router = new Router();
 
 // User routes
 $router->register('GET', '/api/users', [$usersController, 'readUsers']);
+$router->register('GET', '/api/users/id/{id}', function($params) use ($usersController) {
+    return $usersController->readUserById($params['id']);
+});
+$router->register('GET', '/api/users/username/{username}', function($params) use ($usersController) {
+    return $usersController->readUserByUsername($params['username']);
+});
+$router->register('GET', '/api/users/role/{role}', function($params) use ($usersController) {
+    return $usersController->readUsersByRole($params['role']);
+});
 $router->register('POST', '/api/users', [$usersController, 'addUsers']);
 $router->register('PUT', '/api/users', [$usersController, 'updateUsers']);
 $router->register('DELETE', '/api/users', [$usersController, 'deleteUsers']);

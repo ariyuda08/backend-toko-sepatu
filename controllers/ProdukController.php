@@ -1,6 +1,7 @@
 <?php
 include_once 'models/ProdukModel.php';
 include_once 'services/ProdukService.php';
+include_once 'middleware/Authentication.php';
 
 class ProdukController
 {
@@ -14,12 +15,14 @@ class ProdukController
 
     public function readProduk()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $produk = $this->produkService->fetchAllProduk();
         return json_encode($produk);
     }
 
     public function readProdukById($id)
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $user = $this->produkService->fetchProdukById($id);
         if ($user) {
             return json_encode($user);
@@ -31,6 +34,7 @@ class ProdukController
 
     public function addProduk()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $data = json_decode(file_get_contents("php://input"), true);
         $result = $this->produkService->addProduk($data);
         if ($result) {
@@ -43,6 +47,7 @@ class ProdukController
 
     public function updateProduk()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $data = json_decode(file_get_contents("php://input"), true);
         if (!isset($data['id_produk'])) {
             echo json_encode(array("message" => "ID is required."));
@@ -60,6 +65,7 @@ class ProdukController
 
     public function deleteProduk()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $data = json_decode(file_get_contents("php://input"), true);
         if (!isset($data['id_produk'])) {
             echo json_encode(array("message" => "ID is required."));

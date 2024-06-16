@@ -1,6 +1,7 @@
 <?php
 include_once 'models/PesananModel.php';
 include_once 'services/PesananService.php';
+include_once 'middleware/Authentication.php';
 
 class PesananController
 {
@@ -14,12 +15,14 @@ class PesananController
 
     public function readPesanan()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $pesanan = $this->pesananService->fetchAllPesanan();
         return json_encode($pesanan);
     }
 
     public function readPesananById($id)
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $user = $this->pesananService->fetchPesananById($id);
         if ($user) {
             return json_encode($user);
@@ -31,6 +34,7 @@ class PesananController
 
     public function addPesanan()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $data = json_decode(file_get_contents("php://input"), true);
         $result = $this->pesananService->addPesanan($data);
         if ($result) {
@@ -43,6 +47,7 @@ class PesananController
 
     public function updatePesanan()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $data = json_decode(file_get_contents("php://input"), true);
         if (!isset($data['id_pesanan'])) {
             echo json_encode(array("message" => "ID is required."));
@@ -60,6 +65,7 @@ class PesananController
 
     public function deletePesanan()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $data = json_decode(file_get_contents("php://input"), true);
         if (!isset($data['id_pesanan'])) {
             echo json_encode(array("message" => "ID is required."));

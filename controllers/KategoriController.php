@@ -18,6 +18,17 @@ class KategoriController
         return json_encode($kategori);
     }
 
+    public function readKategoriById($id)
+    {
+        $user = $this->kategoriService->fetchKategoriById($id);
+        if ($user) {
+            return json_encode($user);
+        } else {
+            echo json_encode(array("message" => "User not found."));
+        }
+        exit();
+    }
+
     public function addKategori()
     {
         $data = json_decode(file_get_contents("php://input"), true);

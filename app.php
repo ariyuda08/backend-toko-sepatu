@@ -43,6 +43,9 @@ $router->register('DELETE', '/api/produk', [$produkController, 'deleteProduk']);
 
 // Kategori routes
 $router->register('GET', '/api/kategori', [$kategoriController, 'readKategori']);
+$router->register('GET', '/api/kategori/id/{id}', function($params) use ($kategoriController) {
+    return $kategoriController->readKategoriById($params['id']);
+});
 $router->register('POST', '/api/kategori', [$kategoriController, 'addKategori']);
 $router->register('PUT', '/api/kategori', [$kategoriController, 'updateKategori']);
 $router->register('DELETE', '/api/kategori', [$kategoriController, 'deleteKategori']);

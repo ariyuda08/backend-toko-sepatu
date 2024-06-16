@@ -36,6 +36,19 @@ class UsersModel
         }
     }
 
+    public function getUserByUsername($username)
+    {
+        try {
+            $query = "SELECT * FROM " . $this->table_name . " WHERE username = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1, $username);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+    
     public function addUsers($data)
     {
         try {

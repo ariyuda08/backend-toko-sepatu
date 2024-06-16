@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include_once 'controllers/UsersController.php';
 include_once 'controllers/ProdukController.php';
 include_once 'controllers/KategoriController.php';
@@ -16,6 +18,31 @@ $pesananController = new PesananController($db);
 
 // Set up the router
 $router = new Router();
+
+// Login route
+$router->register('POST', '/api/login', function() use ($usersController) {
+    $data = json_decode(file_get_contents("php://input"), true);
+    $username = $data['username'];
+    $password = $data['password'];
+    
+    if ($usersController->login($username, $password)) {
+        echo json_encode(array("message" => "Login successful"));
+    } else {
+        http_response_code(401);
+        echo json_encode(array("message" => "Invalid username or password"));
+    }
+    exit();
+});
+
+// Logout route
+$router->register('POST', '/api/logout', function() use ($usersController) {
+    if ($usersController->logout()) {
+        echo json_encode(array("message" => "Logout successful"));
+    } else {
+        echo json_encode(array("message" => "Logout failed"));
+    }
+    exit();
+});
 
 // User routes
 $router->register('GET', '/api/users', [$usersController, 'readUsers']);

@@ -96,5 +96,15 @@ class UsersController
         }
         exit();
     }
+
+    public function login($username, $password)
+    {
+        return $this->usersService->login($username, $password);
+    }
+
+    public function logout()
+    {
+        return $this->usersService->logout();
+    }
 }
 ?>

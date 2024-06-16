@@ -18,6 +18,17 @@ class PesananController
         return json_encode($pesanan);
     }
 
+    public function readPesananById($id)
+    {
+        $user = $this->pesananService->fetchPesananById($id);
+        if ($user) {
+            return json_encode($user);
+        } else {
+            echo json_encode(array("message" => "User not found."));
+        }
+        exit();
+    }
+
     public function addPesanan()
     {
         $data = json_decode(file_get_contents("php://input"), true);

@@ -23,6 +23,19 @@ class PesananModel
         }
     }
 
+    public function getPesananById($id)
+    {
+        try {
+            $query = "SELECT * FROM " . $this->table_name . " WHERE id_pesanan = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1, $id);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
     public function addPesanan($data)
     {
         try {

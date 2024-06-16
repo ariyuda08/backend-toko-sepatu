@@ -18,6 +18,17 @@ class ProdukController
         return json_encode($produk);
     }
 
+    public function readProdukById($id)
+    {
+        $user = $this->produkService->fetchProdukById($id);
+        if ($user) {
+            return json_encode($user);
+        } else {
+            echo json_encode(array("message" => "User not found."));
+        }
+        exit();
+    }
+
     public function addProduk()
     {
         $data = json_decode(file_get_contents("php://input"), true);

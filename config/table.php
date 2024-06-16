@@ -5,3 +5,4 @@ return [
     'pesanan' => 'pesanan',
     'kategori' => 'kategori',
 ];
+?>

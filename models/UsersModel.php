@@ -48,7 +48,20 @@ class UsersModel
             echo "Error: " . $e->getMessage();
         }
     }
-    
+
+    public function getUsersByRole($role)
+    {
+        try {
+            $query = "SELECT * FROM " . $this->table_name . " WHERE role = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1, $role);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
     public function addUsers($data)
     {
         try {

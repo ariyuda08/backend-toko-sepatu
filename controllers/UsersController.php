@@ -1,6 +1,7 @@
 <?php
 include_once 'models/UsersModel.php';
 include_once 'services/UsersService.php';
+include_once 'middleware/Authentication.php';
 
 class UsersController
 {
@@ -14,12 +15,14 @@ class UsersController
 
     public function readUsers()
     {
+        Authentication::authenticate(['pemilik', 'admin']);
         $users = $this->usersService->fetchAllUsers();
         return json_encode($users);
     }
 
     public function readUserById($id)
     {
+        Authentication::authenticate(['pemilik', 'admin']);
         $user = $this->usersService->fetchUserById($id);
         if ($user) {
             return json_encode($user);
@@ -31,6 +34,7 @@ class UsersController
 
     public function readUserByUsername($username)
     {
+        Authentication::authenticate(['pemilik', 'admin']);
         $user = $this->usersService->fetchUserByUsername($username);
         if ($user) {
             return json_encode($user);
@@ -39,9 +43,10 @@ class UsersController
         }
         exit();
     }
-    
+
     public function readUsersByRole($role)
     {
+        Authentication::authenticate(['pemilik', 'admin']);
         $users = $this->usersService->fetchUserByRole($role);
         if ($users) {
             return json_encode($users);
@@ -53,6 +58,7 @@ class UsersController
 
     public function addUsers()
     {
+        Authentication::authenticate(['pemilik', 'admin']);
         $data = json_decode(file_get_contents("php://input"), true);
         $result = $this->usersService->addUsers($data);
         if ($result) {
@@ -65,6 +71,7 @@ class UsersController
 
     public function updateUsers()
     {
+        Authentication::authenticate(['pemilik', 'admin']);
         $data = json_decode(file_get_contents("php://input"), true);
         if (!isset($data['id_user'])) {
             echo json_encode(array("message" => "ID is required."));
@@ -82,6 +89,7 @@ class UsersController
 
     public function deleteUsers()
     {
+        Authentication::authenticate(['pemilik', 'admin']);
         $data = json_decode(file_get_contents("php://input"), true);
         if (!isset($data['id_user'])) {
             echo json_encode(array("message" => "ID is required."));

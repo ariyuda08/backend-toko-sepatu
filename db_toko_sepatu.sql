@@ -50,9 +50,9 @@ CREATE TABLE Users (
 
 -- Menambahkan data ke Tabel Users (10 data)
 INSERT INTO Users (username, nama_lengkap, email, password, role) VALUES
-('yuda_diva', 'Yuda Diva', 'john@email.com', 'password1', 'pemilik'),
-('wayan_patric', 'Wayan Patric', 'jane@email.com', 'password2', 'admin'),
-('made_dana', 'Made Dana', 'bob@email.com', 'password3', 'admin');
+('yuda_diva', 'Yuda Diva', 'yudadiva@email.com', 'password1', 'pemilik'),
+('wayan_patric', 'Wayan Patric', 'yanpatric@email.com', 'password2', 'admin'),
+('made_dana', 'Made Dana', 'madedana@email.com', 'password3', 'admin');
 
 -- Membuat Tabel Pesanan
 CREATE TABLE Pesanan (

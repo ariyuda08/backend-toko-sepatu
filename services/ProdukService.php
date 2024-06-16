@@ -32,6 +32,22 @@ class ProdukService
         return $produk_array;
     }
 
+    public function fetchProdukById($id)
+    {
+        $produk = $this->produkModel->getProdukById($id);
+        if ($produk) {
+            return array(
+                "id_produk" => $produk['id_produk'],
+                "nama_produk" => $produk['nama_produk'],
+                "deskripsi" => $produk['deskripsi'],
+                "harga" => $produk['harga'],
+                "gambar" => $produk['gambar'],
+                "id_kategori" => $produk['id_kategori']
+            );
+        }
+        return null;
+    }
+
     public function addProduk($data)
     {
         return $this->produkModel->addProduk($data);

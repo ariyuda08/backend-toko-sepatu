@@ -1,6 +1,7 @@
 <?php
 include_once 'models/KategoriModel.php';
 include_once 'services/KategoriService.php';
+include_once 'middleware/Authentication.php';
 
 class KategoriController
 {
@@ -14,12 +15,14 @@ class KategoriController
 
     public function readKategori()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $kategori = $this->kategoriService->fetchAllKategori();
         return json_encode($kategori);
     }
 
     public function readKategoriById($id)
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $user = $this->kategoriService->fetchKategoriById($id);
         if ($user) {
             return json_encode($user);
@@ -31,6 +34,7 @@ class KategoriController
 
     public function addKategori()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $data = json_decode(file_get_contents("php://input"), true);
         $result = $this->kategoriService->addKategori($data);
         if ($result) {
@@ -43,6 +47,7 @@ class KategoriController
 
     public function updateKategori()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $data = json_decode(file_get_contents("php://input"), true);
         if (!isset($data['id_kategori'])) {
             echo json_encode(array("message" => "ID is required."));
@@ -60,6 +65,7 @@ class KategoriController
 
     public function deleteKategori()
     {
+        Authentication::authenticate(['admin', 'pemilik']);
         $data = json_decode(file_get_contents("php://input"), true);
         if (!isset($data['id_kategori'])) {
             echo json_encode(array("message" => "ID is required."));

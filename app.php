@@ -34,6 +34,9 @@ $router->register('DELETE', '/api/users', [$usersController, 'deleteUsers']);
 
 // Produk routes
 $router->register('GET', '/api/produk', [$produkController, 'readProduk']);
+$router->register('GET', '/api/produk/id/{id}', function($params) use ($produkController) {
+    return $produkController->readProdukById($params['id']);
+});
 $router->register('POST', '/api/produk', [$produkController, 'addProduk']);
 $router->register('PUT', '/api/produk', [$produkController, 'updateProduk']);
 $router->register('DELETE', '/api/produk', [$produkController, 'deleteProduk']);

@@ -52,6 +52,9 @@ $router->register('DELETE', '/api/kategori', [$kategoriController, 'deleteKatego
 
 // Pesanan routes
 $router->register('GET', '/api/pesanan', [$pesananController, 'readPesanan']);
+$router->register('GET', '/api/pesanan/id/{id}', function($params) use ($pesananController) {
+    return $pesananController->readPesananById($params['id']);
+});
 $router->register('POST', '/api/pesanan', [$pesananController, 'addPesanan']);
 $router->register('PUT', '/api/pesanan', [$pesananController, 'updatePesanan']);
 $router->register('DELETE', '/api/pesanan', [$pesananController, 'deletePesanan']);

@@ -27,7 +27,7 @@ class ProdukController
         if ($user) {
             return json_encode($user);
         } else {
-            echo json_encode(array("message" => "User not found."));
+            echo json_encode(array("message" => "Produk not found."));
         }
         exit();
     }

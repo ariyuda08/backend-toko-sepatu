@@ -65,7 +65,7 @@ CREATE TABLE Pesanan (
     status ENUM('pending', 'diproses', 'dikirim', 'selesai'),
     jumlah INT, 
     total_harga DECIMAL(10,2), 
-    FOREIGN KEY (id_user) REFERENCES Users(id_user),
+    FOREIGN KEY (id_user) REFERENCES Users(id_user) ON DELETE CASCADE,
     FOREIGN KEY (id_produk) REFERENCES Produk(id_produk) ON DELETE CASCADE
 );
 

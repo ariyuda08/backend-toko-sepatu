@@ -27,7 +27,7 @@ class PesananController
         if ($user) {
             return json_encode($user);
         } else {
-            echo json_encode(array("message" => "User not found."));
+            echo json_encode(array("message" => "Pesanan not found."));
         }
         exit();
     }

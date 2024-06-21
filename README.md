@@ -78,7 +78,7 @@ Atribut-atribut pada setiap tabel:
 
 3. Tabel Pesanan memiliki atribut ID_Pesanan (primary key), ID_User (foreign key), ID_Produk (foreign key), Nama_Pelanggan, Kontak, Tanggal, Status.
 
-4. Tabel Users memiliki atribut ID_User (primary key), Username, Password, Nama_Lengkap, dan Email.
+4. Tabel Users memiliki atribut ID_User (primary key), Username, Password, Nama_Lengkap, Email dan Role.
 
 Model ERD ini dirancang dengan mempertimbangkan kesederhanaan dan efisiensi dalam mengelola data toko sepatu. Dengan relasi one-to-many antara Kategori dan Produk, pengelolaan data menjadi lebih terstruktur dan mudah dilakukan. Setiap produk hanya perlu merujuk ke satu kategori, sehingga mempermudah pengelompokan dan pencarian produk berdasarkan kategorinya. Demikian pula, dengan relasi one-to-many antara Produk dan Pesanan, setiap pesanan hanya terkait dengan satu produk, sehingga memudahkan dalam melacak serta mengelola pesanan secara individual. Hal ini juga menyederhanakan proses pembelian, karena setiap pesanan hanya perlu mencatat satu produk yang dibeli. Secara keseluruhan, model ERD ini menyediakan struktur yang sederhana dan efisien untuk mengelola data toko sepatu, dengan mempertimbangkan relasi antara entitas-entitas utama seperti Kategori, Produk, Pesanan, dan Users.
 
@@ -496,8 +496,8 @@ File db_toko_sepatu.sql berisi definisi struktur basis data untuk sistem backend
 
 - **Tabel Pesanan:** Menyimpan data pesanan dengan kolom id_pesanan sebagai primary key. Kolom lainnya termasuk tanggal_pesanan, id_user, id_produk, nama_pelanggan, kontak, status, jumlah, dan total_harga.
 
-
 **License.md**
+
 File License.md merupakan lisensi MIT yang memberikan izin kepada siapa pun untuk menggunakan, menyalin, memodifikasi, dan mendistribusikan perangkat lunak tanpa biaya. Meskipun lisensi ini memberikan kebebasan tersebut, tidak ada jaminan atas kualitas perangkat lunak, dan pemilik lisensi tidak bertanggung jawab atas penggunaan atau kerusakan yang mungkin timbul dari penggunaan perangkat lunak tersebut.
 
 **README.md**
@@ -523,15 +523,21 @@ DB_PASSWORD =
 ```
 6. Buka browser dan akses phpMyAdmin dengan mengetikkan "http://localhost/phpmyadmin" pada address bar. Kita akan diarahkan ke halaman phpMyAdmin yang merupakan antarmuka untuk mengelola database MySQL.
 7. Di halaman phpMyAdmin, klik pada menu `Databases` di bagian atas. Kemudian, pada bagian "Create database", masukkan nama database `toko_sepatu` dan pilih collation `utf8mb4_general_ci`. Klik tombol "Create" untuk membuat database baru.
+
 ![Petunjuk Pemasangan](media/Langkah7PetunjukPemasangan.png)
+
 8. Setelah database berhasil dibuat, pilih database `toko_sepatu` yang baru saja dibuat dari daftar database di sebelah kiri.
 9. Klik tab `Import` pada menu atas untuk beralih ke halaman impor data. Di halaman ini, Anda dapat mengimpor struktur tabel dan data awal untuk aplikasi dari file SQL yang telah disediakan.
 10. Pada halaman impor, klik tombol `Choose File` dan pilih file `db_toko_sepatu.sql` yang terletak pada folder "database" dalam proyek Anda. File SQL ini berisi perintah-perintah SQL untuk membuat tabel-tabel yang diperlukan dan mengisi data awal.
+
 ![Import File](media/Langkah10PetunjukPemasangan.png)
+
 11. Setelah memilih file SQL, klik tombol `Go` pada bagian bawah halaman untuk memulai proses impor. Tunggu hingga proses impor selesai. Anda akan melihat pesan sukses jika impor berhasil dilakukan.
 12. Sekarang, aplikasi sudah terhubung dengan database lokal. Kita dapat mengakses aplikasi melalui browser dengan URL "http://localhost/backend-toko-sepatu/".
 13. Jika semuanya berjalan dengan baik, Kita akan melihat halaman utama aplikasi toko sepatu di browser. Kita dapat mulai mengeksplorasi fitur-fitur pada sistem backend toko sepatu tersebut, seperti melihat daftar produk, mengelola kategori, mengelola pesanan, dan lain sebagainya.
+
 ![Create Database](media/Langkah13PetunjukPemasangan.png)
+
 14.	Jika Kita ingin menghentikan aplikasi, Kita dapat mematikan service Apache dan MySQL pada XAMPP Control Panel dengan mengklik tombol `Stop` pada masing-masing service.
 
 ## Cara Penggunaan
@@ -657,7 +663,7 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
      - Masukkan URL http://localhost/backend-toko-sepatu/api/produk 
      - Klik `Send` untuk mengirim permintaan
 
-- **Mendapatkan data produk by ID:**
+- **Mendapatkan data produk berdasarkan ID:**
 ![readProdukById](media/readProdukById.png)
     - Pilih metode HTTP `GET` 
      - Masukkan URL http://localhost/backend-toko-sepatu/api/produk/id/1 (ganti 1 dengan ID produk yang kita inginkan)
@@ -718,7 +724,7 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
     - Masukkan URL http://localhost/backend-toko-sepatu/api/kategori 
     - Klik `Send` untuk mengirim permintaan
 
-- **Mendapatkan data Kategori by ID:**
+- **Mendapatkan data Kategori berdasarkan ID:**
 ![readKategoriById](media/readKategoriById.png)
     - Pilih metode HTTP `GET`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/kategori/id/1  (ganti 1 dengan ID kategori yang kita inginkan)
@@ -772,7 +778,7 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
     - Masukkan URL http://localhost/backend-toko-sepatu/api/pesanan
     - Klik `Send`untuk mengirim permintaan
 
-- **Mendapatkan pesanan by ID:**
+- **Mendapatkan pesanan berdasarkan ID:**
 ![readPesananById](media/readPesananById.png)
     - Pilih metode HTTP `GET`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/pesanan/id/1 (ganti 1 dengan ID pesanan yang kita inginkan)

@@ -32,7 +32,7 @@ Saya ingin membangun sistem backend dari sebuah website sederhana untuk toko sep
    - Website akan menyimpan informasi tentang pesanan yang masuk dari pelanggan, termasuk tanggal pesanan, pengguna yang menangani pesanan, produk yang dipesan, informasi pelanggan (nama, kontak), status pesanan, jumlah, dan total harga.
    - Pemilik dan admin dapat melihat dan mengelola pesanan yang masuk melalui panel admin.
    - Pengunjung dapat melihat informasi kontak toko (nomor telepon, email, alamat) untuk melakukan pemesanan melalui kontak offline dengan toko.
-   - Pemilik dan admin dapat memperbarui status pesanan, seperti 'pending' (menunggu), 'diproses', 'dikirim', atau 'selesai', untuk memberikan informasi terkini kepada pelanggan.
+   - Pemilik dan admin dapat memperbarui tanggal serta status pesanan, seperti 'pending' (menunggu), 'diproses', 'dikirim', atau 'selesai', untuk memberikan informasi terkini kepada pelanggan.
 
 5. Autentikasi dan Otorisasi (Keamanan) 🔐
    - Website akan menggunakan sistem keamanan untuk memastikan bahwa hanya pengguna yang berwenang yang dapat mengakses halaman-halaman tertentu.
@@ -42,7 +42,7 @@ Dengan fitur-fitur ini, website toko sepatu akan menjadi solusi yang efektif bag
 
 Pengembangan website ini akan menggunakan pendekatan yang terstruktur dan mengikuti prinsip-prinsip pengembangan web yang baik. Dengan memisahkan bagian-bagian website menjadi komponen yang berbeda (MVC), website akan lebih mudah dikembangkan, dipelihara, dan diperbarui di masa depan. Keamanan website juga akan menjadi prioritas dengan menerapkan sistem autentikasi dan otorisasi yang tepat.
 
-Dengan website toko sepatu ini, diharapkan pemilik toko dapat memperluas jangkauan pelanggan, meningkatkan visibilitas produk, dan memberikan pengalaman belanja online yang menyenangkan bagi para penggemar sepatu.
+Dengan website toko sepatu ini, diharapkan pemilik toko dapat memperluas jangkauan pelanggan, meningkatkan visibilitas produk, dan memberikan pengalaman belanja dengan menggunakan aplikasi lain seperti WhatsApp untuk melakukan pemesanan yang menyenangkan bagi para penggemar sepatu.
 
 ## Skema/Gambar Tech Stack
 
@@ -592,19 +592,19 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
 - **Mendapatkan data Users/pengguna berdasarkan ID:**
     ![readUserById](media/readUserById.png)
     - Pilih metode HTTP `GET`
-    - Masukkan URL http://localhost/backend-toko-sepatu/api/users/id/1 (ganti `1` dengan ID pengguna yang Kita inginkan)
+    - Masukkan URL http://localhost/backend-toko-sepatu/api/users/id/1 (ganti `1` dengan ID pengguna yang Kita inginkan selama datanya ada pada database)
     - Klik `Send` untuk mengirim permintaan
 
 - **Mendapatkan data Users/pengguna berdasarkan username:**
     ![readUserByUsername](media/readUserByUsername.png)
     - Pilih metode HTTP `GET`
-    - Masukkan URL http://localhost/backend-toko-sepatu/api/users/username/yuda_diva (ganti `admin` dengan username yang Kita inginkan)
+    - Masukkan URL http://localhost/backend-toko-sepatu/api/users/username/yuda_diva (ganti `admin` dengan username yang Kita inginkan selama datanya ada pada database)
     - Klik `Send` untuk mengirim permintaan
 
 - **Mendapatkan Users/pengguna berdasarkan role:**
 ![readUserByRole](media/readUserByRole.png)
     - Pilih metode HTTP `GET`
-    - Masukkan URL http://localhost/backend-toko-sepatu/api/users/role/admin (ganti `admin` dengan role yang Anda inginkan)
+    - Masukkan URL http://localhost/backend-toko-sepatu/api/users/role/admin (ganti `admin` dengan role yang Anda inginkan selama datanya ada pada database)
     - Klik `Send` untuk mengirim permintaan
 
 - **Menambahkan Users/pengguna baru:**
@@ -666,7 +666,7 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
 - **Mendapatkan data produk berdasarkan ID:**
 ![readProdukById](media/readProdukById.png)
     - Pilih metode HTTP `GET` 
-     - Masukkan URL http://localhost/backend-toko-sepatu/api/produk/id/1 (ganti 1 dengan ID produk yang kita inginkan)
+     - Masukkan URL http://localhost/backend-toko-sepatu/api/produk/id/1 (ganti 1 dengan ID produk yang kita inginkan selama datanya ada pada database)
      - Klik `Send`untuk mengirim permintaan
 
 - **Menambahkan produk baru:**
@@ -727,7 +727,7 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
 - **Mendapatkan data Kategori berdasarkan ID:**
 ![readKategoriById](media/readKategoriById.png)
     - Pilih metode HTTP `GET`
-    - Masukkan URL http://localhost/backend-toko-sepatu/api/kategori/id/1  (ganti 1 dengan ID kategori yang kita inginkan)
+    - Masukkan URL http://localhost/backend-toko-sepatu/api/kategori/id/1  (ganti 1 dengan ID kategori yang kita inginkan selama datanya ada pada database)
     - Klik `Send` untuk mengirim permintaan
 
 - **Menambahkan Kategori baru:**
@@ -781,7 +781,7 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
 - **Mendapatkan pesanan berdasarkan ID:**
 ![readPesananById](media/readPesananById.png)
     - Pilih metode HTTP `GET`
-    - Masukkan URL http://localhost/backend-toko-sepatu/api/pesanan/id/1 (ganti 1 dengan ID pesanan yang kita inginkan)
+    - Masukkan URL http://localhost/backend-toko-sepatu/api/pesanan/id/1 (ganti 1 dengan ID pesanan yang kita inginkan selama datanya ada pada database)
     - Klik `Send` untuk mengirim permintaan
 
 - **Menambahkan Pesanan baru:**

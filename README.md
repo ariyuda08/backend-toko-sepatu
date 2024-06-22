@@ -706,11 +706,12 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
         "id_kategori": 1
     }
     ```
+     
      - Klik `Send` untuk mengirim permintaan
 
 - **Menghapus data Produk:**
 
-![deleteProduk](media/deleteProduk.png)
+    ![deleteProduk](media/deleteProduk.png)
 
     - Pilih metode HTTP `DELETE`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/produk 
@@ -772,10 +773,10 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
     - Masukkan data JSON ID kategori, misalnya sebagai berikut : 
     ```
     {
-    "id_kategori": "6"
+        "id_kategori": "6"
     }
     ```
-      - Klik `Send` untuk mengirim permintaan
+    - Klik `Send` untuk mengirim permintaan
 
 6\. **Uji Rute Pesanan**
 
@@ -826,7 +827,9 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
     ```
 
 - **Menghapus data Pesanan:**
-![deletePesanan](media/deletePesanan.png)
+
+    ![deletePesanan](media/deletePesanan.png)
+
     - Pilih metode HTTP `DELETE`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/pesanan
     - Buka tab `Body`, pilih `raw` dan `JSON` 

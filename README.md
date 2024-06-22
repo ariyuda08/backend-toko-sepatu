@@ -26,7 +26,7 @@ Saya ingin membangun sistem backend dari sebuah website sederhana untuk toko sep
    - Pemilik dan admin dapat mengelola produk, seperti menambahkan produk baru, mengubah informasi produk, atau menghapus produk yang tidak lagi dijual.
    - Pada halaman utama website, pengunjung akan dapat melihat daftar sepatu yang tersedia.
    - Pengunjung dapat melihat sepatu berdasarkan kategori melalui menu navigasi atau filter yang disediakan.
-   - Ketika pengunjung mengklik pada produk tertentu, mereka akan diarahkan ke halaman detail produk yang menampilkan informasi lengkap seperti gambar, deskripsi, harga, dan ketersediaan ukuran.
+   - Ketika pengunjung mengklik pada produk tertentu, mereka akan diarahkan ke halaman detail produk yang menampilkan informasi lengkap seperti gambar, deskripsi, dan harga.
 
 4. Manajemen Pesanan 🛒
    - Website akan menyimpan informasi tentang pesanan yang masuk dari pelanggan, termasuk tanggal pesanan, pengguna yang menangani pesanan, produk yang dipesan, informasi pelanggan (nama, kontak), status pesanan, jumlah, dan total harga.
@@ -314,7 +314,7 @@ class Router
 }
 ?>
 ```
-Router.php bertanggung jawab untuk mengelola rute dalam aplikasi. Kelas Router memiliki properti $routes yang menyimpan semua rute yang terdaftar bersama dengan metode HTTP yang sesuai. Metode register digunakan untuk mendaftarkan rute baru ke dalam array $routes. Metode ini menerima tiga parameter:
+Router.php bertanggung jawab untuk mengelola rute dalam aplikasi. Kelas Router memiliki properti `$routes` yang menyimpan semua rute yang terdaftar bersama dengan metode HTTP yang sesuai. Metode register digunakan untuk mendaftarkan rute baru ke dalam array `$routes`. Metode ini menerima tiga parameter:
 
 1. `$method`, yang merupakan metode HTTP (seperti GET atau POST)
 
@@ -884,11 +884,11 @@ Untuk mengatasi tantangan ini, saya mempelajari dan memahami konsep autentikasi 
 
 Saya merancang dan mengimplementasikan mekanisme penyimpanan dan validasi kredensial pengguna (username dan password) dengan aman, seperti menggunakan teknik hashing dan enkripsi yang tepat. Implementasi ini dapat dilihat pada file Authentication.php yang saya sediakan pada repository backend-toko-sepatu, di mana terdapat metode validateUser yang melakukan validasi username dan password terhadap data pengguna yang disimpan dalam database.
 
-Selanjutnya, saya mengintegrasikan sistem autentikasi Basic Auth ke dalam kontroller UsersController.php, ProdukController.php, KategoriController.php, dan PesananController.php. Dalam file ini, saya memanggil metode Authentication::authenticate sebelum mengakses atau memodifikasi data users (pengguna), produk, kategori, dan pesanan. Metode ini memastikan bahwa hanya pengguna dengan role (peran) yang valid yang dapat mengakses fitur-fitur tertentu dalam sistem. Dengan cara ini, saya dapat mengimplementasikan fitur autentikasi Basic Auth yang solid dan terintegrasi dengan baik dalam sistem backend website Toko Sepatu tanpa menggunakan library atau framework pihak ketiga.
+Selanjutnya, saya mengintegrasikan sistem autentikasi Basic Auth ke dalam kontroller UsersController.php, ProdukController.php, KategoriController.php, dan PesananController.php. Dalam file ini, saya memanggil metode `Authentication::authenticate` sebelum mengakses atau memodifikasi data users (pengguna), produk, kategori, dan pesanan. Metode ini memastikan bahwa hanya pengguna dengan role (peran) yang valid yang dapat mengakses fitur-fitur tertentu dalam sistem. Dengan cara ini, saya dapat mengimplementasikan fitur autentikasi Basic Auth yang solid dan terintegrasi dengan baik dalam sistem backend website Toko Sepatu tanpa menggunakan library atau framework pihak ketiga.
 
 - Penggunaan GitHub
 
-Sebagai pemula, saya kesulitan memahami dan menggunakan GitHub secara efektif. Konsep-konsep seperti repositori, branching, dan pull requests masih membingungkan.
+Sebagai pemula, saya kesulitan memahami dan menggunakan GitHub secara efektif. Konsep-konsep seperti repository, branching, dan pull requests masih membingungkan.
 
 #### Cara Mengatasinya:
 

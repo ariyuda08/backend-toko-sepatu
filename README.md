@@ -549,13 +549,16 @@ berikut adalah penjelasan mengenai cara penggunaan dan daftar URL untuk menguji 
 - Buka aplikasi Postman setelah proses instalasi selesai.
 
 2\. **Melakukan Login**
+
 ![Cara Login](media/login.png)
+
 - Klik tombol `+` di sudut kanan atas untuk membuat permintaan baru.
 - Pilih metode HTTP `POST` dari dropdown.
 - Masukkan URL `http://localhost/backend-toko-sepatu/api/login` di kolom URL.
 - Klik tab `Body` di bawah kolom URL.
 - Pilih opsi `raw` dan format `JSON` dari dropdown.
-- Masukkan data login dalam bentuk JSON dengan menyesuaikan pada salah satu - data yang di inputkan pada file db_toko_sepatu.sql pada repository, seperti dibawah ini:
+- Masukkan data login dalam bentuk JSON dengan menyesuaikan pada salah satu 
+- data yang di inputkan pada file db_toko_sepatu.sql pada repository, seperti dibawah ini:
 
 ```
 { 
@@ -567,7 +570,9 @@ berikut adalah penjelasan mengenai cara penggunaan dan daftar URL untuk menguji 
 - Jika berhasil, Kita akan menerima respons dengan kode status 200 dan pesan "Login successful".
 
 3. **Melakukan Logout**
+
 ![Cara Logout](media/logout.png)
+
 - Pilih metode HTTP `POST` dari dropdown.
 - Masukkan URL ` http://localhost/backend-toko-sepatu/api/logout` di kolom URL.
 - Klik tombol `Send` untuk mengirim permintaan.
@@ -704,14 +709,16 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
      - Klik `Send` untuk mengirim permintaan
 
 - **Menghapus data Produk:**
+
 ![deleteProduk](media/deleteProduk.png)
+
     - Pilih metode HTTP `DELETE`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/produk 
     - Buka tab `Body`, pilih `raw` dan `JSON`
     - Masukkan data JSON ID produk, misalnya sebagai berikut :
     ```
     {
-    "id_produk": "13",
+        "id_produk": "13",
     }
     ```
     - Klik `Send` untuk mengirim permintaan
@@ -786,7 +793,7 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
 
 - **Menambahkan Pesanan baru:**
 ![addPesanan](media/addPesanan.png)
- - Pilih metode HTTP `POST`
+    - Pilih metode HTTP `POST`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/pesanan 
     - Buka tab `Body`, pilih `raw` dan `JSON`
     - Masukkan data JSON pesanan, misalnya sebagai berikut : 

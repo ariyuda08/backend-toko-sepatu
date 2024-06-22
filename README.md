@@ -689,7 +689,7 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
         "id_kategori": 1
     }
     ```
-    - Klik `Send`
+    - Klik `Send` untuk mengirim permintaan
 - **Memperbarui data Produk:**
 ![updateProduk](media/updateProduk.png)
     - Pilih metode `PUT`
@@ -823,8 +823,8 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
         "id_kategori": "6",
         "nama_kategori": "Flat Shoes Women"
     }
-      - Klik `Send` untuk mengirim permintaan
     ```
+    - Klik `Send` untuk mengirim permintaan
 
 - **Menghapus data Pesanan:**
 

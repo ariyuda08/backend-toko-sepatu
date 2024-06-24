@@ -588,25 +588,25 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
 
 4\. **Uji Rute Users**
 
-- **Mendapatkan semua data Users/pengguna:**
+- **Melihat/mendapatkan semua data Users/pengguna:**
     ![readUser](media/readUser.png)
     - Pilih metode HTTP `GET` 
      - Masukkan URL http://localhost/backend-toko-sepatu/api/users 
      - Klik `Send` untuk mengirim permintaan
 
-- **Mendapatkan data Users/pengguna berdasarkan ID:**
+- **Melihat/mendapatkan data Users/pengguna berdasarkan ID:**
     ![readUserById](media/readUserById.png)
     - Pilih metode HTTP `GET`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/users/id/1 (ganti `1` dengan ID pengguna yang Kita inginkan selama datanya ada pada database)
     - Klik `Send` untuk mengirim permintaan
 
-- **Mendapatkan data Users/pengguna berdasarkan username:**
+- **Melihat/mendapatkan data Users/pengguna berdasarkan username:**
     ![readUserByUsername](media/readUserByUsername.png)
     - Pilih metode HTTP `GET`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/users/username/yuda_diva (ganti `admin` dengan username yang Kita inginkan selama datanya ada pada database)
     - Klik `Send` untuk mengirim permintaan
 
-- **Mendapatkan Users/pengguna berdasarkan role:**
+- **Melihat/mendapatkan Users/pengguna berdasarkan role:**
 ![readUserByRole](media/readUserByRole.png)
     - Pilih metode HTTP `GET`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/users/role/admin (ganti `admin` dengan role yang Anda inginkan selama datanya ada pada database)
@@ -662,13 +662,13 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
 
 5\. **Uji Rute Produk**
    
-- **Mendapatkan data semua produk:**
+- **Melihat/mendapatkan data semua produk:**
 ![readProduk](media/readProduk.png)
     - Pilih metode HTTP `GET`
      - Masukkan URL http://localhost/backend-toko-sepatu/api/produk 
      - Klik `Send` untuk mengirim permintaan
 
-- **Mendapatkan data produk berdasarkan ID:**
+- **Melihat/mendapatkan data produk berdasarkan ID:**
 ![readProdukById](media/readProdukById.png)
     - Pilih metode HTTP `GET` 
      - Masukkan URL http://localhost/backend-toko-sepatu/api/produk/id/1 (ganti 1 dengan ID produk yang kita inginkan selama datanya ada pada database)
@@ -726,13 +726,13 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
 
 5\. **Uji Rute Kategori**
 
-- **Mendapatkan semua data Kategori:**
+- **Melihat/mendapatkan semua data Kategori:**
 ![readKategori](media/readKategori.png)
     - Pilih metode HTTP `GET`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/kategori 
     - Klik `Send` untuk mengirim permintaan
 
-- **Mendapatkan data Kategori berdasarkan ID:**
+- **Melihat/mendapatkan data Kategori berdasarkan ID:**
 ![readKategoriById](media/readKategoriById.png)
     - Pilih metode HTTP `GET`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/kategori/id/1  (ganti 1 dengan ID kategori yang kita inginkan selama datanya ada pada database)
@@ -780,13 +780,13 @@ Sebelum melakukan pengujian pada semua URL yang berkaitan pada rute Users, Produ
 
 6\. **Uji Rute Pesanan**
 
-- **Mendapatkan semua data Pesanan:**
+- **Melihat/mendapatkan semua data Pesanan:**
 ![readPesanan](media/readPesanan.png)
     - Pilih metode HTTP `GET`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/pesanan
     - Klik `Send`untuk mengirim permintaan
 
-- **Mendapatkan pesanan berdasarkan ID:**
+- **Melihat/mendapatkan pesanan berdasarkan ID:**
 ![readPesananById](media/readPesananById.png)
     - Pilih metode HTTP `GET`
     - Masukkan URL http://localhost/backend-toko-sepatu/api/pesanan/id/1 (ganti 1 dengan ID pesanan yang kita inginkan selama datanya ada pada database)
